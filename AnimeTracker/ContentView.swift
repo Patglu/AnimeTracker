@@ -1,13 +1,8 @@
-//
-//  ContentView.swift
-//  AnimeTracker
-//
-//  Created by Pat on 2022/12/16.
-//
 
 import SwiftUI
 
 struct ContentView: View {
+    var seasonalAnimeTracker = AnimeTrackerManager()
     var body: some View {
         VStack {
             Image(systemName: "globe")
