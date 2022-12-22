@@ -2,15 +2,10 @@
 import SwiftUI
 
 struct ContentView: View {
-    var seasonalAnimeTracker = AnimeTrackerManager()
+    var seasonalAnimeTracker = AnimeNetworkManager()
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
-        }
-        .padding()
+//            LibraryView()
+            DiscoveryView()
     }
 }
 
