@@ -13,6 +13,7 @@
 		43538A1F294C738700F4715B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43538A1E294C738700F4715B /* Preview Assets.xcassets */; };
 		43538A27294C7C0F00F4715B /* MyAnimeListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43538A26294C7C0F00F4715B /* MyAnimeListManager.swift */; };
 		43538A2A294C7DEF00F4715B /* SeasonalAnime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43538A29294C7DEF00F4715B /* SeasonalAnime.swift */; };
+		43A8450B296C4FDF0037891C /* URL+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A8450A296C4FDF0037891C /* URL+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		43538A1E294C738700F4715B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		43538A26294C7C0F00F4715B /* MyAnimeListManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAnimeListManager.swift; sourceTree = "<group>"; };
 		43538A29294C7DEF00F4715B /* SeasonalAnime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonalAnime.swift; sourceTree = "<group>"; };
+		43A8450A296C4FDF0037891C /* URL+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				43538A26294C7C0F00F4715B /* MyAnimeListManager.swift */,
+				43A8450A296C4FDF0037891C /* URL+Extension.swift */,
 			);
 			path = "Networking ";
 			sourceTree = "<group>";
@@ -162,6 +165,7 @@
 				43538A1A294C738500F4715B /* ContentView.swift in Sources */,
 				43538A27294C7C0F00F4715B /* MyAnimeListManager.swift in Sources */,
 				43538A2A294C7DEF00F4715B /* SeasonalAnime.swift in Sources */,
+				43A8450B296C4FDF0037891C /* URL+Extension.swift in Sources */,
 				43538A18294C738500F4715B /* AnimeTrackerApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
