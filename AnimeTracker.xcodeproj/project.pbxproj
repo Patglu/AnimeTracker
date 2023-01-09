@@ -14,6 +14,7 @@
 		43538A27294C7C0F00F4715B /* MyAnimeListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43538A26294C7C0F00F4715B /* MyAnimeListManager.swift */; };
 		43A8450B296C4FDF0037891C /* URL+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A8450A296C4FDF0037891C /* URL+Extension.swift */; };
 		43A8450E296C54C50037891C /* BasicAnimeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A8450D296C54C50037891C /* BasicAnimeModel.swift */; };
+		43A84514296C78D10037891C /* ExplorerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A84513296C78D10037891C /* ExplorerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		43538A26294C7C0F00F4715B /* MyAnimeListManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAnimeListManager.swift; sourceTree = "<group>"; };
 		43A8450A296C4FDF0037891C /* URL+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extension.swift"; sourceTree = "<group>"; };
 		43A8450D296C54C50037891C /* BasicAnimeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicAnimeModel.swift; sourceTree = "<group>"; };
+		43A84513296C78D10037891C /* ExplorerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplorerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 		43538A16294C738500F4715B /* AnimeTracker */ = {
 			isa = PBXGroup;
 			children = (
+				43A84510296C78300037891C /* View */,
 				43A8450C296C50100037891C /* Extensions */,
 				43538A28294C7DDE00F4715B /* Model */,
 				43538A25294C7BEF00F4715B /* Networking  */,
@@ -98,6 +101,14 @@
 				43A8450A296C4FDF0037891C /* URL+Extension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		43A84510296C78300037891C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				43A84513296C78D10037891C /* ExplorerView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -175,6 +186,7 @@
 				43A8450B296C4FDF0037891C /* URL+Extension.swift in Sources */,
 				43A8450E296C54C50037891C /* BasicAnimeModel.swift in Sources */,
 				43538A18294C738500F4715B /* AnimeTrackerApp.swift in Sources */,
+				43A84514296C78D10037891C /* ExplorerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
