@@ -9,16 +9,19 @@ struct DiscoveryView: View {
         NavigationView{
             List{
                 Section {
-                    PageView(pages: discoveryViewModel.topAiringAnime.data.map{
+                    PageView(pages: discoveryViewModel.topAiringAnime.data.map  {
                         DiscoveryCard(info: $0)
                     })
-                    .frame(height: 500)
+                    .frame(height: 550)
                     .listRowInsets(EdgeInsets())
                 }
                 .listSectionSeparator(.hidden, edges: .top)
 
                 Section {
                     ScrollingRowView(scrollOptions: .recommendations)
+                        .onAppear{
+                            discoveryViewModel.fetchAnimeData(TopAiring.trending!, category: .recommendations)
+                        }
                 } header: {
                     Text("Recommendations")
                         .font(.title2.bold())

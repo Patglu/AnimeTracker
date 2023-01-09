@@ -5,7 +5,7 @@ struct DiscoveryCard: View {
     @ObservedObject var animeViewModel = AnimeViewModel()
     var body: some View {
         GeometryReader { geo in
-            NavigationLink(destination: AnimeDetailView(anime: animeViewModel.detailAnime?.data ?? TempData().fullAnimeDetail.data)) {
+            NavigationLink(destination: AnimeDetailView(anime: (animeViewModel.detailAnime.data ?? TempData().fullAnimeDetail.data) ?? TempData().fullAnimeDetail.data!)) {
                 AsyncImage(url: URL(string: info.image ?? "")){ image in
                     image
                         .resizable()
@@ -20,6 +20,7 @@ struct DiscoveryCard: View {
                 }
             }
             .simultaneousGesture(TapGesture().onEnded{
+                print("Tapped")
                 animeViewModel.getDetailAnime(info.malID)
             })
         }
@@ -49,7 +50,7 @@ struct InfoOverlay: View{
                 Text(info.title)
                     .font(.title)
                     .bold()
-                
+                    .multilineTextAlignment(.leading)
                 HStack {
                     Text(info.genres.first?.name ?? "")
                 }

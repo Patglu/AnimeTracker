@@ -1,7 +1,6 @@
 import Foundation
 
 struct RecommendedAnime: Codable {
-    let pagination: RecPagination
     let data: [Recommnded]
 }
 

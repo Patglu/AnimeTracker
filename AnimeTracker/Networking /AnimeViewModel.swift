@@ -10,7 +10,7 @@ class AnimeViewModel: ObservableObject{
     @Published var topAiringAnime = TempData().topAiring
     @Published var trendingAnime = TempData().recommendedAnime
     @Published var popularAnime = TempData().popularAnime
-    @Published var detailAnime: DetailAnime?
+    @Published var detailAnime: DetailAnime = DetailAnime()
     @Published var searchedAnime: Searched?
     
     init() {
@@ -52,23 +52,11 @@ class AnimeViewModel: ObservableObject{
         URLSession.shared.request(url: URL(string: "https://api.jikan.moe/v4/anime?q=\(searchedItem)")!) { [weak self] (searchAnimeData: Searched?, error: Error?) in
             guard let safeSearchData = searchAnimeData else { return }
             DispatchQueue.main.async {
-                print(safeSearchData.data)
                 self?.searchedAnime = safeSearchData
             }
         }
     }
     
-    
-    func animeGenres() -> [String]{
-        var animeGenres = [String]()
-        
-        for info in topAiringAnime.data{
-            for genre in info.genres{
-                animeGenres.append(genre.name)
-            }
-        }
-        return animeGenres
-    }
 }
 
 

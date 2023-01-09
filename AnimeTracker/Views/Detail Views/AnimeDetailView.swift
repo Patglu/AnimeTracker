@@ -6,7 +6,8 @@ struct AnimeDetailView: View {
     var anime: AnimeData
     @State private var backgroundColor: Color = .clear
     @State private var isExpanded: Bool = false
-    
+    @State private var showOptions: Bool = false
+    @StateObject var vm = DataController()
     var body: some View {
         GeometryReader { geo in
             ScrollView{
@@ -44,6 +45,8 @@ struct AnimeDetailView: View {
                                 Button(action: {
                                     withAnimation(.interpolatingSpring(stiffness: 100, damping: 25)){
                                         isExpanded.toggle()
+                                        vm.addAnime(title: anime.title, animeID: anime.malID)
+
                                     }
                                 }) {
                                     Text(isExpanded ? "Less" : "More")
@@ -83,7 +86,7 @@ struct AnimeDetailView: View {
 
 struct AnimeDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        AnimeDetailView(anime: TempData().fullAnimeDetail.data)
+        AnimeDetailView(anime: TempData().fullAnimeDetail.data ?? TempData().fullAnimeDetail.data!)
     }
 }
 
@@ -104,9 +107,11 @@ extension AnimeDetailView{
             .frame(width: geo.size.width / 1.4, height: geo.size.height / 18)
             .background(.ultraThinMaterial, in: Capsule(style: .continuous))
             Button {
-                
+                withAnimation(.interpolatingSpring(stiffness: 300, damping: 15)){
+                    showOptions.toggle()
+                }
             } label: {
-                Image(systemName: "plus")
+                Image(systemName: showOptions ? "checkmark" : "plus" )
                     .font(.title3)
                     .foregroundColor(.black)
                     .frame(width: geo.size.width / 8, height: geo.size.height / 18)

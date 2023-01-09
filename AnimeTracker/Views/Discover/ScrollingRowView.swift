@@ -23,7 +23,7 @@ struct ScrollingRowView: View {
 extension ScrollingRowView{
     var recommendedScroll: some View{
         HStack {
-            ForEach(discoveryViewModel.trendingAnime.data, id: \.self) { item in
+            ForEach(discoveryViewModel.trendingAnime.data ?? [], id: \.self) { item in
                 ForEach(item.entry, id: \.self) {entryItem in
                     AsyncImage(url: URL(string: entryItem.image ?? "")){ image in
                         image

@@ -2,7 +2,11 @@ import Foundation
 
 // MARK: - DetailAnime
 struct DetailAnime: Codable {
-    let data: AnimeData
+    let data: AnimeData?
+    init(data: AnimeData? = nil) {
+        self.data = data
+    }
+    
 }
 
 // MARK: - AnimeData

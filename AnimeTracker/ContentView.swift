@@ -4,14 +4,17 @@ import SwiftUI
 struct ContentView: View {
 //    var seasonalAnimeTracker = AnimeNetworkManager()
     @AppStorage("selectedTab") var selectedTab:Tab = .explore
+    
     var body: some View {
         ZStack(alignment: .bottom){
             Group {
                 switch selectedTab {
                 case .library:
                     LibraryView()
+                        
                 case .explore:
                     DiscoveryView()
+                        
                 case .search:
                     SearchView()
                 }

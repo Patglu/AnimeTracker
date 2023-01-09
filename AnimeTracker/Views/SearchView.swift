@@ -2,6 +2,7 @@ import SwiftUI
 
 struct SearchView: View {
     @ObservedObject var animeNetworking = AnimeViewModel()
+    @StateObject private var vm = DataController()
     @FocusState var isSearching:Bool
     @State var searchedText:String = ""
     @State  var isSearchFocused: Bool = false
@@ -10,8 +11,18 @@ struct SearchView: View {
             searchTextField
             VStack(alignment: .leading){
                 ForEach(animeNetworking.searchedAnime?.data ?? Searched(data: []).data, id: \.self) { searched in
-                    Text(searched.title)
-                        .padding()
+                    HStack {
+                        Text(searched.title)
+                            .padding()
+                        Button {
+                            vm.addAnime(title: searched.title, animeID: searched.malID)
+                        } label: {
+                            Image(systemName: "plus")
+                                .padding()
+                                .background(.black.opacity(0.5), in: Circle())
+                        }
+
+                    }
                 }
             }
         }
