@@ -57,6 +57,7 @@
 		43538A16294C738500F4715B /* AnimeTracker */ = {
 			isa = PBXGroup;
 			children = (
+				43A8450C296C50100037891C /* Extensions */,
 				43538A28294C7DDE00F4715B /* Model */,
 				43538A25294C7BEF00F4715B /* Networking  */,
 				43538A17294C738500F4715B /* AnimeTrackerApp.swift */,
@@ -79,7 +80,6 @@
 			isa = PBXGroup;
 			children = (
 				43538A26294C7C0F00F4715B /* MyAnimeListManager.swift */,
-				43A8450A296C4FDF0037891C /* URL+Extension.swift */,
 			);
 			path = "Networking ";
 			sourceTree = "<group>";
@@ -90,6 +90,14 @@
 				43538A29294C7DEF00F4715B /* SeasonalAnime.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		43A8450C296C50100037891C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				43A8450A296C4FDF0037891C /* URL+Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
