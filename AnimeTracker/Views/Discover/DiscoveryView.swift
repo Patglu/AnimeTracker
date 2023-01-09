@@ -3,46 +3,48 @@ import SwiftUI
 struct DiscoveryView: View {
     @State private var searchText = ""
     @ObservedObject var genre = Genres()
-    @ObservedObject var discoveryViewModel = DiscoveryViewModel()
-    
+    @ObservedObject var discoveryViewModel = AnimeViewModel()
+    let range: Range = 0..<10
     var body: some View {
-        ZStack(alignment: .top){
-            //            Color.green
-            //                .ignoresSafeArea(.all)
-            
-            VStack {
-                GeometryReader { geo in
-                    ScrollView(.horizontal,showsIndicators: false){
-                        HStack {
-                            ForEach(discoveryViewModel.getImages(), id: \.hashValue) { img in
-                                AsyncImage(url: URL(string: img)) { image in
-                                    image
-                                        .resizable()
-                                        .aspectRatio(3/4,contentMode: .fit)
-                                        .frame(width: geo.size.width)
-                                        .overlay {
-                                            ZStack(alignment: .bottom){
-                                                LinearGradient(colors: [.black,.clear], startPoint: .top, endPoint: .bottom)
-                                                Text("Top Airing")
-                                                    .font(.title2)
-                                                    .fontWeight(.light)
-                                                    .hLeading()
-                                                    .padding(.leading)
-                                                    .foregroundColor(.white)
-                                            }
-                                        }
-                                   
-                                } placeholder: {
-                                    ProgressView()
-                                }
-                            }
-                        }
-                        
-                    }
+        NavigationView{
+            List{
+                Section {
+                    PageView(pages: discoveryViewModel.topAiringAnime.data.map{
+                        DiscoveryCard(info: $0)
+                    })
+                    .frame(height: 500)
+                    .listRowInsets(EdgeInsets())
                 }
+                .listSectionSeparator(.hidden, edges: .top)
+
+                Section {
+                    ScrollingRowView(scrollOptions: .recommendations)
+                } header: {
+                    Text("Recommendations")
+                        .font(.title2.bold())
+                }
+                .listSectionSeparatorTint(.clear,edges: .all)
                 
+                Section {
+                    ScrollingRowView(scrollOptions: .trending)
+                } header: {
+                    Text("Top Airing")
+                        .font(.title2.bold())
+                }
+                .listSectionSeparatorTint(.clear,edges: .all)
+          
+                Section {
+                    CategoryRow()
+                        .frame(height: 300)
+                } header: {
+                    Text("Popular")
+                        .font(.title2.bold())
+                }
+                .listSectionSeparatorTint(.clear,edges: .all)
             }
-            
+            .listStyle(.plain)
+
+            .ignoresSafeArea()
         }
     }
 }
@@ -52,6 +54,7 @@ struct DiscoveryView: View {
 struct DiscoveryView_Previews: PreviewProvider {
     static var previews: some View {
         DiscoveryView()
+        
     }
 }
 

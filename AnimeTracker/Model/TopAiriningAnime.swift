@@ -7,55 +7,49 @@ protocol AnimeUrl : Codable {
 struct TopAiring: Codable {
     let pagination: Pagination
     let data: [Airing]
+    
+    init(pagination: Pagination = Pagination(), data: [Airing] = []) {
+        self.pagination = pagination
+        self.data = data
+    }
 }
  
 extension TopAiring{
    static let url = URL(string: "https://api.jikan.moe/v4/top/anime?filter=airing")
+    static let trending  = URL(string: "https://api.jikan.moe/v4/recommendations/anime")
     static let urlString =  "https://api.jikan.moe/v4/top/anime?filter=airing"
 }
 
 
-struct Airing: Codable {
+struct Airing: Codable, Hashable {
+    static func == (lhs: Airing, rhs: Airing) -> Bool {
+        return lhs.malID == rhs.malID && lhs.title == lhs.title
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(malID    )
+    }
+    
     let malID: Int
+    let title: String
     let images: [String: animeImage]
-
+    let studios: [Demographic]
+    let genres: [Demographic]
+    var image: String? {
+        images.first?.value.largeImageURL ?? ""
+    }
+    
     enum CodingKeys: String, CodingKey {
         case malID = "mal_id"
         case images
+        case genres,  studios, title
     }
 }
 
 
-struct Aired: Codable {
-    let from: Date
-    let to: Date?
-    let prop: Prop
-    let string: String
-}
 
 
-struct Prop: Codable {
-    let from, to: From
-}
-
-
-struct From: Codable {
-    let day, month, year: Int?
-}
-
-
-struct Broadcast: Codable {
-    let day, time: String?
-    let timezone: Timezone?
-    let string: String?
-}
-
-enum Timezone: String, Codable {
-    case asiaTokyo = "Asia/Tokyo"
-}
-
-
-struct Demographic: Codable {
+struct Demographic: Codable , Hashable{
     let malID: Int
     let type: DemographicType
     let name: String
@@ -65,6 +59,13 @@ struct Demographic: Codable {
         case malID = "mal_id"
         case type, name, url
     }
+    
+    static func == (lhs: Demographic, rhs: Demographic) -> Bool {
+        return lhs.malID == rhs.malID && lhs.name == lhs.name
+      }
+      func hash(into hasher: inout Hasher) {
+        hasher.combine(malID)
+      }
 }
 
 enum DemographicType: String, Codable {
@@ -94,33 +95,7 @@ enum Status: String, Codable {
 }
 
 
-struct Title: Codable {
-    let type: TitleType
-    let title: String
-}
 
-enum TitleType: String, Codable {
-    case english = "English"
-    case german = "German"
-    case japanese = "Japanese"
-    case spanish = "Spanish"
-    case synonym = "Synonym"
-    case typeDefault = "Default"
-}
-
-
-struct Trailer: Codable {
-    let youtubeID: String?
-    let url, embedURL: String?
-    let images: Images
-
-    enum CodingKeys: String, CodingKey {
-        case youtubeID = "youtube_id"
-        case url
-        case embedURL = "embed_url"
-        case images
-    }
-}
 
 
 struct Images: Codable {
@@ -154,6 +129,13 @@ struct Pagination: Codable {
         case hasNextPage = "has_next_page"
         case currentPage = "current_page"
         case items
+    }
+    
+    init(lastVisiblePage: Int = 0, hasNextPage: Bool = false, currentPage: Int = 0, items: Items = Items(count: 0, total: 0, perPage: 0)) {
+        self.lastVisiblePage = lastVisiblePage
+        self.hasNextPage = hasNextPage
+        self.currentPage = currentPage
+        self.items = items
     }
 }
 

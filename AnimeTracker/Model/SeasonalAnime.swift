@@ -7,12 +7,11 @@ struct SeasonalAnime: Codable {
     let paging: Paging
 }
 
-// MARK: - Datum
 struct Datum: Codable {
     let node: Node
 }
 
-// MARK: - Node
+
 struct Node: Codable {
     let id: Int
     let title: String
