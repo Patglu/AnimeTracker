@@ -4,7 +4,7 @@ struct BasicAnimeModel: Codable {
     let data: [BasicData]
 }
 
-struct BasicData: Codable {
+struct BasicData: Codable, Hashable {
     let malID: Int
     let images: [String: AnimeImage]
     var image: String? {
@@ -44,5 +44,12 @@ struct BasicData: Codable {
         }
     }
     
+    static func == (lhs: BasicData, rhs: BasicData) -> Bool {
+        return lhs.malID == rhs.malID && lhs.title == lhs.title
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(malID)
+    }
     
 }

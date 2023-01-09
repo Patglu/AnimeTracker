@@ -3,9 +3,12 @@ import SwiftUI
 struct ExplorerView: View {
     @ObservedObject var animeNetwork = AnimeTrackerManager()
     var body: some View {
-        Text("Hello, World!")
-        ForEach( animeNetwork.topAiring.data, id: \.self) { airing in
-            
+        ScrollView(.horizontal) {
+            HStack {
+                ForEach( animeNetwork.topAiring.data, id: \.self) { airing in
+                    Text(airing.title)
+                }
+            }
         }
     }
 }

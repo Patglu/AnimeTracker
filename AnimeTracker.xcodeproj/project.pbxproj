@@ -12,6 +12,10 @@
 		43538A1C294C738700F4715B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43538A1B294C738700F4715B /* Assets.xcassets */; };
 		43538A1F294C738700F4715B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43538A1E294C738700F4715B /* Preview Assets.xcassets */; };
 		43538A27294C7C0F00F4715B /* MyAnimeListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43538A26294C7C0F00F4715B /* MyAnimeListManager.swift */; };
+		4358405F296C82D90029E82C /* AsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4358405E296C82D90029E82C /* AsyncImage.swift */; };
+		43584061296C83000029E82C /* EnvironmentValues+ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43584060296C83000029E82C /* EnvironmentValues+ImageCache.swift */; };
+		43584063296C832A0029E82C /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43584062296C832A0029E82C /* ImageCache.swift */; };
+		43584065296C834F0029E82C /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43584064296C834F0029E82C /* ImageLoader.swift */; };
 		43A8450B296C4FDF0037891C /* URL+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A8450A296C4FDF0037891C /* URL+Extension.swift */; };
 		43A8450E296C54C50037891C /* BasicAnimeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A8450D296C54C50037891C /* BasicAnimeModel.swift */; };
 		43A84514296C78D10037891C /* ExplorerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A84513296C78D10037891C /* ExplorerView.swift */; };
@@ -24,6 +28,10 @@
 		43538A1B294C738700F4715B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		43538A1E294C738700F4715B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		43538A26294C7C0F00F4715B /* MyAnimeListManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAnimeListManager.swift; sourceTree = "<group>"; };
+		4358405E296C82D90029E82C /* AsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImage.swift; sourceTree = "<group>"; };
+		43584060296C83000029E82C /* EnvironmentValues+ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnvironmentValues+ImageCache.swift"; sourceTree = "<group>"; };
+		43584062296C832A0029E82C /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
+		43584064296C834F0029E82C /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		43A8450A296C4FDF0037891C /* URL+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extension.swift"; sourceTree = "<group>"; };
 		43A8450D296C54C50037891C /* BasicAnimeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicAnimeModel.swift; sourceTree = "<group>"; };
 		43A84513296C78D10037891C /* ExplorerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplorerView.swift; sourceTree = "<group>"; };
@@ -59,6 +67,7 @@
 		43538A16294C738500F4715B /* AnimeTracker */ = {
 			isa = PBXGroup;
 			children = (
+				4358405C296C82910029E82C /* Caching */,
 				43A84510296C78300037891C /* View */,
 				43A8450C296C50100037891C /* Extensions */,
 				43538A28294C7DDE00F4715B /* Model */,
@@ -93,6 +102,25 @@
 				43A8450D296C54C50037891C /* BasicAnimeModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		4358405C296C82910029E82C /* Caching */ = {
+			isa = PBXGroup;
+			children = (
+				4358405D296C82B90029E82C /* CachingImages */,
+			);
+			path = Caching;
+			sourceTree = "<group>";
+		};
+		4358405D296C82B90029E82C /* CachingImages */ = {
+			isa = PBXGroup;
+			children = (
+				4358405E296C82D90029E82C /* AsyncImage.swift */,
+				43584060296C83000029E82C /* EnvironmentValues+ImageCache.swift */,
+				43584062296C832A0029E82C /* ImageCache.swift */,
+				43584064296C834F0029E82C /* ImageLoader.swift */,
+			);
+			path = CachingImages;
 			sourceTree = "<group>";
 		};
 		43A8450C296C50100037891C /* Extensions */ = {
@@ -181,9 +209,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4358405F296C82D90029E82C /* AsyncImage.swift in Sources */,
 				43538A1A294C738500F4715B /* ContentView.swift in Sources */,
+				43584065296C834F0029E82C /* ImageLoader.swift in Sources */,
 				43538A27294C7C0F00F4715B /* MyAnimeListManager.swift in Sources */,
+				43584063296C832A0029E82C /* ImageCache.swift in Sources */,
 				43A8450B296C4FDF0037891C /* URL+Extension.swift in Sources */,
+				43584061296C83000029E82C /* EnvironmentValues+ImageCache.swift in Sources */,
 				43A8450E296C54C50037891C /* BasicAnimeModel.swift in Sources */,
 				43538A18294C738500F4715B /* AnimeTrackerApp.swift in Sources */,
 				43A84514296C78D10037891C /* ExplorerView.swift in Sources */,
