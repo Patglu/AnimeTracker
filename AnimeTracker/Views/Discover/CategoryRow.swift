@@ -36,7 +36,8 @@ struct CategoryRow: View {
                         }
                     }
                 }
-                
+               Spacer()
+                    .frame(height: 200)
             }
         }
     }

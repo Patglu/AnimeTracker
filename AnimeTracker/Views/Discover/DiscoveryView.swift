@@ -44,9 +44,17 @@ struct DiscoveryView: View {
                         .font(.title2.bold())
                 }
                 .listSectionSeparatorTint(.clear,edges: .all)
+                
+                
+                Section {
+                    Spacer()
+                        .frame(height: 100)
+                } header: {
+                    Text("")
+                }
+                
             }
             .listStyle(.plain)
-
             .ignoresSafeArea()
         }
     }

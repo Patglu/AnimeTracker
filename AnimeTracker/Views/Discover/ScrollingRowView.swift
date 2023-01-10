@@ -20,6 +20,8 @@ struct ScrollingRowView: View {
     }
 }
 
+
+
 extension ScrollingRowView{
     var recommendedScroll: some View{
         HStack {
