@@ -35,10 +35,11 @@ extension ExplorerView{
                 .aspectRatio(contentMode: .fill)
                 .overlay(alignment: .bottom) {
                     Text(airing.title)
+                        .foregroundColor(.white)
                         .lineLimit(1)
                         .fontWeight(.bold)
                         .padding()
-                        .foregroundColor(.white)
+                        .padding(.bottom,25)
                 }
             }
         }
